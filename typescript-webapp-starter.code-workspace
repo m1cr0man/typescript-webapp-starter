@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"files.insertFinalNewline": true,
+		"files.trimTrailingWhitespace": true,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"headwind.runOnSave": true,
+	},
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"runem.lit-plugin",
+			"lit.lit-snippets",
+			"pmneo.tsimporter",
+			"austenc.tailwind-docs",
+			"bradlc.vscode-tailwindcss",
+			"bierner.lit-html",
+			"stylelint.vscode-stylelint",
+			"bashmish.es6-string-css"
+		]
+	}
+}

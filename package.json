@@ -1,0 +1,81 @@
+{
+  "name": "webapp-starter",
+  "version": "1.0.0",
+  "description": "Web application example",
+  "author": "lucas@m1cr0man.com",
+  "license": "Apache-2.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "rimraf assets/js && NODE_ENV=development node esbuild.mjs",
+    "build": "rimraf assets/js && NODE_ENV=production node esbuild.mjs",
+    "build:test": "NODE_ENV=test node esbuild.mjs",
+    "test": "npm run build:test && tsc && wtr --coverage",
+    "test:watch": "mkdir -p test-build && touch test-build/index.test.js && WATCH=1 npx concurrently -kr 'npm:build:test' 'wtr --watch'",
+    "eslint": "eslint --ext .ts,.html . --ignore-path .gitignore",
+    "format": "prettier \"**/*.ts\" --write --ignore-path .gitignore && npm run eslint -- --fix"
+  },
+  "dependencies": {
+    "lit": "^2.0.0-rc.2",
+    "tailwindcss": "^2.2.0-canary.14"
+  },
+  "devDependencies": {
+    "@open-wc/eslint-config": "^4.3.0",
+    "@open-wc/testing": "^2.5.33",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "@web/test-runner": "^0.12.20",
+    "autoprefixer": "^10.2.6",
+    "cssnano": "^5.0.6",
+    "cssnano-preset-lite": "^2.0.1",
+    "esbuild": "^0.12.8",
+    "esbuild-plugin-postcss-literal": "../esbuild-plugin-postcss-literal",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^7.2.0",
+    "postcss": "^8.3.2",
+    "rimraf": "^3.0.2",
+    "ts-lit-plugin": "^1.2.1",
+    "typescript": "^4.3.2"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "bracketSpacing": true,
+    "singleQuote": false,
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error"
+      ],
+      "lines-between-class-members": [
+        "always",
+        {
+          "exceptAfterSingleLine": true
+        }
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+  ],
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "lib": ["ES2020", "dom"],
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "noEmit": true,
+    "incremental": true,
+    "pretty": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "rules": {
+          "no-complex-attribute-binding": "error",
+          "no-expressionless-property-binding": "error",
+          "no-incompatible-property-type": "error",
+          "no-incompatible-type-binding": "error",
+          "no-invalid-attribute-name": "error",
+          "no-invalid-boolean-binding": "error",
+          "no-invalid-css": "off",
+          "no-invalid-directive-binding": "error",
+          "no-invalid-tag-name": "error",
+          "no-missing-import": "off",
+          "no-noncallable-event-binding": "error",
+          "no-nullable-attribute-binding": "off",
+          "no-unclosed-tag": "error",
+          "no-unknown-attribute": "off",
+          "no-unknown-event": "off",
+          "no-unknown-property": "error",
+          "no-unknown-property-converter": "error",
+          "no-unknown-slot": "off",
+          "no-unknown-tag-name": "error"
+        }
+      }
+    ]
+  }
+}
