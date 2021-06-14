@@ -35,7 +35,7 @@ const buildConfig = /** @type {import("esbuild").BuildOptions} */ {
     postcssLiteral({
       filter: /\.ts/,
       loader: "ts",
-      tag: "postcss",
+      tag: "pcss",
       config: postcssConfig,
     }),
   ],

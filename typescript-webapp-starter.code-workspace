@@ -23,7 +23,8 @@
 			"bradlc.vscode-tailwindcss",
 			"bierner.lit-html",
 			"stylelint.vscode-stylelint",
-			"bashmish.es6-string-css"
+			"bashmish.es6-string-css",
+			"csstools.postcss"
 		]
 	}
 }
