@@ -29,7 +29,7 @@ const buildConfig = /** @type {import("esbuild").BuildOptions} */ {
   bundle: true,
   format: "esm",
   target: "es2020",
-  sourcemap: "external",
+  sourcemap: IS_PROD ? false : "inline",
   outdir: IS_TEST ? "test-build" : "assets/js",
   plugins: [
     postcssLiteral({
@@ -41,11 +41,11 @@ const buildConfig = /** @type {import("esbuild").BuildOptions} */ {
   ],
   watch: WATCH
     ? {
-        onRebuild(error, result) {
-          if (error) console.error("Watch build failed:", error)
-          else console.log("Watch build succeeded:", result)
-        },
-      }
+      onRebuild(error, result) {
+        if (error) console.error("Watch build failed:", error)
+        else console.log("Watch build succeeded:", result)
+      },
+    }
     : undefined,
 }
 
